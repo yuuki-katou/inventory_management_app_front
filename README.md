@@ -5,6 +5,7 @@
 ### HOME画面
 <img width="889" alt="image" src="https://github.com/yuuki-katou/inventory_management_app_front/assets/142807995/f42691ed-759a-4028-bafe-5c6f50487fe3">
 
+対応表は以下の通りです。
 | No. | 機能 | 説明 |
 | --- | --- | --- |
 | 1 | **[新規登録]ボタン** | 商品情報の新規登録画面へ遷移します。 |
