@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { memo } from "react";
+import "./App.css";
+import { ChakraProvider } from "@chakra-ui/react";
 
-function App() {
+import Home from "./components/pages/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductDetails from "./components/pages/ProductDetails";
+import Header from "./components/molecules/Header";
+import Edit from "./components/pages/Edit";
+import Create from "./components/pages/Create";
+import { RecoilRoot } from "recoil";
+import DataFetcher from "./components/DataFetcher";
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RecoilRoot>
+      <DataFetcher />
+      <ChakraProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="products/create" element={<Create />} />
+            <Route path="products/:productId" element={<ProductDetails />} />
+            <Route path="products/:productId/edit" element={<Edit />} />
+          </Routes>
+        </BrowserRouter>
+      </ChakraProvider>
+    </RecoilRoot>
   );
-}
+};
 
 export default App;
